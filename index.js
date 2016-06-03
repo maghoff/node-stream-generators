@@ -15,13 +15,14 @@ StreamGenerators.prototype = Object.create(Readable.prototype, {constructor: {va
 
 StreamGenerators.prototype._read = function(size) {
     try {
-        var r = this._g.next();
+        do {
+            var r = this._g.next();
 
-        if (false === r.done) {
-            this.push(r.value);
-        } else {
-            this.push(null);
-        }
+            if (r.done) {
+                this.push(null);
+                break;
+            }
+        } while (this.push(r.value));
     } catch (e) {
         this.emit('error', e);
     }

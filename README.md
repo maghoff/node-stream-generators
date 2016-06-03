@@ -1,6 +1,6 @@
 # stream-generators
 
-Pipe ES6 Generators through Node.js [Streams][12].
+Pipe ES6 Generators through Node.js [Streams][Stream].
 
 [![npm version][1]][2]
 [![build status][3]][4]
